@@ -11,17 +11,21 @@ def scrape_moties():
 
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
+
+        print(f"request succesfull: {response.status_code}")
+
         # Parse the HTML content of the page
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # Find the elements containing moties information
-        moties_elements = soup.find_all('div', class_='moties')
-        
-        # Extract and print moties details
-        for motie in moties_elements:
-            title = motie.find('h3').text.strip()
-            details = motie.find('p').text.strip()
+        # Find all 'a' tags with class 'h-link-inverse'
+        motie_elements = soup.find_all('a', class_='h-link-inverse')
+        print(motie_elements)
 
-            print(f"Title: {title}\nDetails: {details}\n{'=' * 30}\n")
+        # Retrieve and print the href attribute for each link
+        for element in motie_elements:
+            motie_titel = element.text.strip()
+            motie_link = element['href']
+            print(f"Titel: {motie_titel} \n Link: {motie_link}\n{'=' * 30}\n")
+            
     else:
         print(f"Failed to retrieve the page. Status Code: {response.status_code}")
