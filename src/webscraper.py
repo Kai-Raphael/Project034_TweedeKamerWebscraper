@@ -17,7 +17,7 @@ def get_motion_data():
         # Parse the HTML content of the page
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # get all the cards (div elements) from the first page
+        # get all the cards (div elements) from the first gitpage
         motie_cards = soup.find_all('div', class_='u-mt--large u-break-inside--avoid-at-print m-card m-card--auto-height')
         next_page_link = tweede_kamer_moties_home_page + soup.find('li', class_='m-pager__item m-pager__item--next').find('a')['href']
         

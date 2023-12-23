@@ -1,4 +1,4 @@
-from webscraper import scrape_moties
+from webscraper import get_motion_data
 
 #going from a machine learning perspective (C.R.I.S.P model)
 def main():
