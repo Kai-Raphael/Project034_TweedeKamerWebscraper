@@ -3,12 +3,12 @@ from getMotionList import getMotionList
 from bs4 import BeautifulSoup
 
 # Function to scrape moties from the Tweede Kamer website
-def scrape_moties():
+def get_motion_data():
     # URL of the moties page
-    url = "https://www.tweedekamer.nl/kamerstukken/moties"
+    tweede_kamer_moties_home_page = "https://www.tweedekamer.nl/kamerstukken/moties"
 
     # Send an HTTP request to the website
-    response = requests.get(url)
+    response = requests.get(tweede_kamer_moties_home_page)
 
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
@@ -19,7 +19,7 @@ def scrape_moties():
 
         # get all the cards (div elements) from the first page
         motie_cards = soup.find_all('div', class_='u-mt--large u-break-inside--avoid-at-print m-card m-card--auto-height')
-        next_page_link = url + soup.find('li', class_='m-pager__item m-pager__item--next').find('a')['href']
+        next_page_link = tweede_kamer_moties_home_page + soup.find('li', class_='m-pager__item m-pager__item--next').find('a')['href']
         
         motie_objects = getMotionList(motie_cards)
 

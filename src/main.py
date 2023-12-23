@@ -1,9 +1,17 @@
 from webscraper import scrape_moties
 
-
+#going from a machine learning perspective (C.R.I.S.P model)
 def main():
-    #Run the scraper function
-    scrape_moties()
+    #Select Data
+    get_motion_data()
+
+    #Clean data
+
+    #Construct Data
+
+    #Integrate Data
+
+    #Model Data
 
 if __name__ == "__main__":
     main()
