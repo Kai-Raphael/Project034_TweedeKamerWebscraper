@@ -1,4 +1,5 @@
 import requests
+from getMotionList import getMotionList
 from bs4 import BeautifulSoup
 
 # Function to scrape moties from the Tweede Kamer website
@@ -21,19 +22,19 @@ def scrape_moties():
         motie_elements = soup.find_all('a', class_='h-link-inverse')
         print(motie_elements)
 
-        motie_links = []  # Create an empty list to store motie links
+        motie_links = getMotionList(motie_elements)  # Create an empty list to store motie links
 
-        for element in motie_elements:
-            motie = element.text.strip()
-            motie_link = element['href'].split("moties/",1)
-            motie_link = "https://www.tweedekamer.nl/kamerstukken/moties/" + motie_link[1].strip()
-
-
-            # Print the information (optional)
-            print(f"Titel: {motie} \n Link: {motie_link}\n{'=' * 30}\n")
-
-            # Append the motie_link to the list
-            motie_links.append(motie_link)
+        #for element in motie_elements:
+        #    motie = element.text.strip()
+        #    motie_link = element['href'].split("moties/",1)
+        #    motie_link = "https://www.tweedekamer.nl/kamerstukken/moties/" + motie_link[1].strip()
+#
+#
+        #    # Print the information (optional)
+        #    print(f"Titel: {motie} \n Link: {motie_link}\n{'=' * 30}\n")
+#
+        #    # Append the motie_link to the list
+        #    motie_links.append(motie_link)
 
         # Print the list of motie_links
         print("List of Motie Links:")
@@ -42,3 +43,6 @@ def scrape_moties():
 
     else:
         print(f"Failed to retrieve the page. Status Code: {response.status_code}")
+
+
+#NOW ONLY TAKES INFO FROM CURRENT PAGE INSTEAD OF AL ~5.000 results
