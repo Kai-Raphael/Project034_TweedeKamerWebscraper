@@ -19,12 +19,12 @@ def scrape_moties():
 
         # get all the cards (div elements) from the first page
         motie_cards = soup.find_all('div', class_='u-mt--large u-break-inside--avoid-at-print m-card m-card--auto-height')
-        next_page_link = soup.find_all('li', class_='m-pager__item m-pager__item--next')
+        next_page_link = url + soup.find('li', class_='m-pager__item m-pager__item--next').find('a')['href']
         
-        print(f"Motie Elements: {motie_cards}")
-        print("next page link: {next_page_link}")
-
         motie_objects = getMotionList(motie_cards)
+
+        print(f"Motie Elements: {motie_cards}")
+        print(f"next page link: {next_page_link}")
 
     else:
         print(f"Failed to retrieve the page. Status Code: {response.status_code}")
