@@ -1,29 +1,24 @@
-def getMotionList(motie_cards): # Geef motie_cards een type.
-     
-     #create an empty list
-     motie_links =[]
+class Motion:
+    def __init__(self, title, link):
+        self.title = title
+        self.link = link
 
-    # loop through the motion cards adding the links to the list
-     for element in motie_cards:
-            motie = element.text.strip()
-            motie_link = element['href'].split("moties/",1) # Maak element even een duidelijke naam.
-            
-            # Over het algemen wil je nooit strings splitten. 
-            # Als je dit wel moet doen dan heb je vaak een andere fout gemaakt.
-            
-            # Process eerst de motie_card in een object 
-            #om er vervolgens met een 'getter' de data(wat je wilt hebben) uit te halen . 
-            #Nu doe je twee dingen tegelijkertijd in dezelfde functie.
-            motie_link = "https://www.tweedekamer.nl/kamerstukken/moties/" + motie_link[1].strip()
+def getMotionList(motie_cards):
+    motie_objects = []
 
+    for card_information in motie_cards:
+        motie_title = card_information.text.strip()
+        print (card_information)
+        #motie_link = card_information['href'].split("moties/", 1)[1].strip()
+        #motie_link = "https://www.tweedekamer.nl/kamerstukken/moties/" + motie_link
 
-            # Print the information (optional)
-            print(f"Titel: {motie} \n Link: {motie_link}\n{'=' * 30}\n")
+        # Create a Motion object
+        motion_object = Motion(title=motie_title, link=motie_link)
 
-            # Append the motie_link to the list
-            motie_links.append(motie_link)
-            
+        # Print the information (optional)
+        print(f"Titel: {motion_object.title} \n Link: {motion_object.link}\n{'=' * 30}\n")
 
-            return motie_links
-     
-     
+        # Append the Motion object to the list
+        motie_objects.append(motion_object)
+
+    return motie_objects
