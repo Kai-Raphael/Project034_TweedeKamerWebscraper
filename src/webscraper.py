@@ -23,10 +23,5 @@ def scrape_moties():
 
         motie_objects = getMotionList(motie_elements)
 
-        # Print the list of Motie objects
-        print("List of Motie Objects:")
-        for motion_object in motie_objects:
-            print(f"Titel: {motion_object.title} \n Link: {motion_object.link}\n{'=' * 30}")
-
     else:
         print(f"Failed to retrieve the page. Status Code: {response.status_code}")
