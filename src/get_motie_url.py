@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from make_http_request import make_http_request
 
 base_url = "https://www.tweedekamer.nl"
 moties_page_url = base_url + "/kamerstukken/moties"
@@ -36,17 +37,3 @@ def get_motie_urls(number_of_motion_pages):
             target_page = requests.get(next_page_hyperlink)
 
     return all_page_links
-
-def make_http_request(target_page):
-
-    # Make the request
-    response = requests.get(target_page)
-
-    # If the request is succesfull, return the page content 
-    if response.status_code == 200:
-        print(f"\u2705 Request successful: {response.status_code}")
-        html_content = response.text
-        return html_content
-    else:
-        print(f"\u274C Failed to retrieve the page. Status Code: {response.status_code}")
-        return None
