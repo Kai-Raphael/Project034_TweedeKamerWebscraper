@@ -28,8 +28,10 @@ def get_motie_page_content(motie_page_link):
 #
     #motie_fractie_deelname
 #
-    #motie_document_link
-#
+    base_url = motie_page_link.split('/')
+    base_url = '/'.join(base_url[:3])
+    motie_document_link = base_url + soup.find('a', class_='u-mt--huge m-button')['href']
+    print(f"\U0001F517 document link: {motie_document_link}")
 
     return 
 
