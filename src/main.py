@@ -11,8 +11,13 @@ def main():
     
     # Use list comprehension to create a link-list 
     links = [link for page_link_list in List_of_Lists_of_page_links for link in page_link_list]
+
     for each_link in links:
-        print(f"Link: {each_link}")
+        # FYI
+        print(f"\U0001F50D Link: {each_link}")
+
+    # FYI: print the # of results 
+    print(f"\U0001F517 Found {len(links)} Links on {NUMBER_OF_PAGES_TO_GO_THROUGH} pages: \n")
 
     #Clean data
 
