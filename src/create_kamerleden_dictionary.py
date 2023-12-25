@@ -20,6 +20,6 @@ def get_kamerleden():
     # Retrieve each motion page link using list comprehension
     #kamerleden_list = [KAMERLEDEN_PAGE_URL + result.find('a')['href'] for result in kamerleden_cards_resultset]
 
-    print(f'Resultset: \n {kamerleden_cards_resultset}')
+    print(f'Resultset: \n {kamerleden_links.get_text}')
 #test run
 get_kamerleden()
