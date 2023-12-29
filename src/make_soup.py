@@ -1,4 +1,5 @@
 import requests
+from bs4 import BeautifulSoup
 
 def make_http_request(target_page):
 
@@ -13,3 +14,9 @@ def make_http_request(target_page):
     else:
         print(f"\u274C Failed to retrieve the page. Status Code: {response.status_code}")
         return None
+
+def make_soup(html_content):
+    # Create a BeautifulSoup object
+    soup = BeautifulSoup(html_content, 'html.parser')
+    print(f'\U0001F372 Soup made')
+    return soup

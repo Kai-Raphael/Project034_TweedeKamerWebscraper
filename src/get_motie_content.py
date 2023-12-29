@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from make_http_request import make_http_request
+from make_soup import make_http_request, make_soup
 
 def get_motie_page_content(motie_page_link):
     
@@ -7,7 +7,7 @@ def get_motie_page_content(motie_page_link):
 
     if motie_fullpage_content is not None:
         # Parse the HTML content of the page
-        soup = BeautifulSoup(motie_fullpage_content, 'html.parser')
+        soup = make_soup(motie_fullpage_content)
 
     # retrieve the subject
     motie_header_1 = soup.find('h1').get_text(strip=True)

@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-from make_http_request import make_http_request
+from make_soup import make_http_request, make_soup
+from urllib.parse import urljoin
+
+# FIX: URL JOIN GEBRUIKEN
 
 base_url = "https://www.tweedekamer.nl"
 moties_page_url = base_url + "/kamerstukken/moties"
@@ -19,7 +22,7 @@ def get_motie_urls(number_of_motion_pages):
         
         if page_content is not None:
             # Parse the HTML content of the page
-            soup = BeautifulSoup(page_content, 'html.parser')
+            soup = make_soup(page_content)
 
             # Find all the hyperlinks of the different moties
             motie_hyperlinks_resultset = soup.find_all('h4', class_='u-mt--collapse')
