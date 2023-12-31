@@ -10,7 +10,7 @@ def main():
     #Select Data
     List_of_Lists_of_page_links = get_motie_urls(NUMBER_OF_PAGES_TO_GO_THROUGH)
     
-    # Use list comprehension to create a link-list 
+    # create a  list of lists
     links = [link for page_link_list in List_of_Lists_of_page_links for link in page_link_list]
 
     # FYI: print each link
@@ -24,16 +24,16 @@ def main():
     print(f"\U0001F50D Search link: {links[4]}" )
     get_motie_page_content(links[4])
 
-    #Then retrieve the motie document
+    # Then retrieve the motie document
     # https://www.tweedekamer.nl/downloads/document?id=2023D51182
 
-    #Clean data
+    # Clean data
 
-    #Construct Data
+    # Construct Data
 
-    #Integrate Data
+    # Integrate Data
 
-    #Model Data
+    # Model Data
 
 if __name__ == "__main__":
     main()

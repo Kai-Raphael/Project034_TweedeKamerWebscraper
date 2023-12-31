@@ -6,10 +6,9 @@ import random
 
 def test_create_kamerlid_profile_function():
     # take (5 samples of) the link(list)
-    random_hyperlink_selection = random.sample(get_kamerleden_url_list, 5)
+    random_hyperlink_selection = random.sample(get_kamerleden_url_list(), 5)
 
     for hyperlink_to_lid_profile in random_hyperlink_selection:
-        print(f'Hyperlink: {selected_hyperlinks}')
         create_kamerlid_profile(hyperlink_to_lid_profile)
     
 def miriam_bikker_test():
@@ -21,6 +20,7 @@ def create_kamerlid_profile(personal_hyperlink):
     soup = make_soup(make_http_request(personal_hyperlink))
 
     # Secondly, retrieve every piece of usefull info
+    print(f'{30 * "-"} socials {30 * "-"}')
     get_socials(soup)
 
 
@@ -39,10 +39,9 @@ def get_socials(soup):
     for link in links:
         print(f'Link: {link}')
 
-
     #return socials
 
 
 
-miriam_bikker_test()
-#test_create_kamerlid_profile_function()
+#miriam_bikker_test()
+test_create_kamerlid_profile_function()
