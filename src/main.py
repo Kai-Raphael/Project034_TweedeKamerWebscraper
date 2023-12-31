@@ -30,10 +30,14 @@ def main():
     # Clean data
 
     # Construct Data
+    # creëer stemgedragsprofiel
+    # creer sociale media gedragsprofiel
+    # partijprogrammaprofiel
 
     # Integrate Data
 
     # Model Data
+
 
 if __name__ == "__main__":
     main()
